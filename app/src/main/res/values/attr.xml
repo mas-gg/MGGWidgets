@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecordButton">
+        <attr name="ring_side" format="dimension|reference"/>
+        <attr name="between_ring_circle" format="dimension|reference"/>
+        <attr name="square_radius" format="dimension|reference"/>
+        <attr name="square_side" format="dimension|reference"/>
+        <attr name="ring_color" format="color|reference"/>
+        <attr name="circle_color" format="color|reference"/>
+        <attr name="duration" format="integer"/>
+    </declare-styleable>
+
+</resources>
