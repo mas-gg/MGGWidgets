@@ -10,4 +10,12 @@
         <attr name="duration" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="RoundImageView">
+        <attr name="mode" format="enum">
+            <enum name="round" value="1"/>
+            <enum name="circle" value="2"/>
+        </attr>
+        <attr name="round" format="dimension|reference"/>
+    </declare-styleable>
+
 </resources>

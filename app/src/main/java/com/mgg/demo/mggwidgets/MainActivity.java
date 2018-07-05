@@ -1,10 +1,9 @@
 package com.mgg.demo.mggwidgets;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
-import com.mgg.demo.mggwidgets.widgets.RecordButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,8 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onRecordButtonClick(View view) {
-        RecordButton recordButton= (RecordButton) view;
-        recordButton.setRecording(!recordButton.getIsRecording());
+    public void goRecordButtonActivity(View view) {
+        startActivity(new Intent(MainActivity.this,RecordButtonActivity.class));
+    }
+
+    public void goRoundImageViewActivity(View view) {
+        startActivity(new Intent(MainActivity.this,RoundImageViewActivity.class));
     }
 }
