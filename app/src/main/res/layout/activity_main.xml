@@ -14,6 +14,11 @@
         android:layout_height="wrap_content"
         android:text="带圆角的ImageView"
         android:onClick="goRoundImageViewActivity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Svg实战"
+        android:onClick="goSvgActivity"/>
 
 
 </LinearLayout>

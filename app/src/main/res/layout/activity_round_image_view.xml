@@ -14,7 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/img"
+        android:src="@drawable/ic_bixin"
         />
 
 
@@ -26,7 +26,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/img"
+        android:src="@drawable/ic_bixin"
         RoundImageView:mode="round"/>
 
     <com.mgg.demo.mggwidgets.widgets.RoundImageView
@@ -36,7 +36,7 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:src="@mipmap/img"
+        android:src="@drawable/ic_bixin"
         android:scaleType="centerCrop"
         RoundImageView:mode="circle"/>
 

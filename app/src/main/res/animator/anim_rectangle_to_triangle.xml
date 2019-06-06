@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="pathData"
+        android:valueFrom="M10,10 L90,10 90,90 10,90"
+        android:valueTo="M50,10 L50,10 90,90 10,90"
+        android:valueType="pathType"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="fillColor"
+        android:valueFrom="#FF4081"
+        android:valueTo="#00edd9"
+        android:valueType="colorType"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
+
+
+</set>

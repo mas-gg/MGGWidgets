@@ -20,4 +20,8 @@ public class MainActivity extends AppCompatActivity {
     public void goRoundImageViewActivity(View view) {
         startActivity(new Intent(MainActivity.this,RoundImageViewActivity.class));
     }
+
+    public void goSvgActivity(View view) {
+        startActivity(new Intent(MainActivity.this,SvgActivity.class));
+    }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_white">
+
+    <ImageView
+        android:id="@+id/iv_android"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/ic_android"/>
+    <ImageView
+        android:id="@+id/iv_anim_android"
+        android:layout_alignParentRight="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/animated_android"
+        android:onClick="onAndroidClick"/>
+
+    <ImageView
+        android:id="@+id/iv_anim_rectangle"
+        android:layout_below="@+id/iv_android"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/animated_rectangle"
+        android:onClick="onRectangleClick"/>
+
+    <ImageView
+        android:id="@+id/iv_anim_triangle"
+        android:layout_below="@+id/iv_anim_android"
+        android:layout_alignParentRight="true"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/animated_triangle"
+        android:onClick="onTriangleClick"/>
+
+
+
+</RelativeLayout>
