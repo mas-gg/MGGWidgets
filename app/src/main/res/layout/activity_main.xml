@@ -19,6 +19,12 @@
         android:layout_height="wrap_content"
         android:text="Svg实战"
         android:onClick="goSvgActivity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="日历"
+        android:onClick="goCalendarActivity"/>
+
 
 
 </LinearLayout>

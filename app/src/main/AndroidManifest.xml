@@ -19,6 +19,7 @@
         <activity android:name=".RecordButtonActivity"/>
         <activity android:name=".RoundImageViewActivity"/>
         <activity android:name=".SvgActivity"/>
+        <activity android:name=".CalendarActivity"/>
     </application>
 
 </manifest>

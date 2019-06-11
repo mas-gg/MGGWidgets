@@ -24,4 +24,8 @@ public class MainActivity extends AppCompatActivity {
     public void goSvgActivity(View view) {
         startActivity(new Intent(MainActivity.this,SvgActivity.class));
     }
+
+    public void goCalendarActivity(View view) {
+        CalendarActivity.start(this);
+    }
 }
