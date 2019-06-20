@@ -36,5 +36,13 @@
         android:onClick="onTriangleClick"/>
 
 
+    <ImageView
+        android:id="@+id/iv_anim_pin"
+        android:layout_below="@+id/iv_anim_triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/animated_pin"
+        android:onClick="onPinClick"/>
+
 
 </RelativeLayout>

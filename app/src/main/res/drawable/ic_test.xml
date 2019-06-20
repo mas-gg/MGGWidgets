@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+
+    <path
+        android:name="bg"
+        android:fillColor="#fff"
+        android:pathData="M0,0 h500 v500 h-500" />
+    <path
+        android:pathData="M50,0 v500z M100,0 v500z M150,0 v500z M200,0 v500z M250,0 v500z M300,0 v500z M350,0 v500z M400,0 v500z M450,0 v500z"
+        android:strokeWidth="0.5"
+        android:strokeColor="#bbb" />
+
+    <path
+        android:pathData="M0,50 h500z M0,100 h500z M0,150 h500z M0,200 h500z M0,250 h500z M0,300 h500z M0,350 h500z M0,400 h500z M0,450 h500z"
+        android:strokeWidth="0.5"
+        android:strokeColor="#bbb" />
+
+    <path
+        android:pathData="M0,250 h500z "
+        android:strokeWidth="1"
+        android:strokeColor="#333" />
+
+    <path
+        android:pathData="M250,0 v500z "
+        android:strokeWidth="1"
+        android:strokeColor="#333" />
+
+    <group>
+
+        <path
+            android:name=""
+            android:fillColor="#FF4081"
+            android:pathData="M300,200 h-150 a150,150 0 1,0 150,-150 z"
+            android:strokeWidth="2"
+            android:strokeColor="#0f0" />
+
+        <path
+            android:name=""
+            android:fillColor="#666"
+            android:pathData="M275,175 v-150 a150,150 0 0,0 -150,150 z"
+            android:strokeWidth="2"
+            android:strokeColor="#0f0" />
+
+        <path
+            android:fillColor="@android:color/holo_blue_light"
+            android:pathData="M 50,25 a 25,25 0 1,0 50,0"
+            android:strokeWidth="2"
+            android:strokeColor="#0f0" />
+
+    </group>
+
+
+    <!--<path-->
+        <!--android:pathData="M40,350 l 50,-25-->
+           <!--a25,25 0 0,1 50,-25 l 50,-25-->
+           <!--a25,50 -30 0,1 50,-25 l 50,-25-->
+           <!--a25,75 -30 0,1 50,-25 l 50,-25-->
+           <!--a25,100 -30 0,1 50,-25 l 50,-25"-->
+        <!--android:strokeWidth="1"-->
+        <!--android:strokeColor="@color/pin" />-->
+
+</vector>
