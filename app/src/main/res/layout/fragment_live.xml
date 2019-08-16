@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/color_white">
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_close_btn" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/linearInterpolator"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearInterpolator"/>
+            <RadioButton
+                android:id="@+id/accelerateInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AccelerateInterpolator"/>
+
+            <RadioButton
+                android:id="@+id/decelerateInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DecelerateInterpolator"/>
+            <RadioButton
+                android:id="@+id/overshootInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OvershootInterpolator"/>
+
+            <RadioButton
+                android:id="@+id/accelerateDecelerateInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AccelerateDecelerateInterpolator"/>
+
+            <RadioButton
+                android:id="@+id/anticipateInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateInterpolator"/>
+
+            <RadioButton
+                android:id="@+id/anticipateOvershootInterpolator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AnticipateOvershootInterpolator"/>
+
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/iv_egg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_egg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="100dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_all"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clipChildren="false"
+        android:orientation="vertical"
+        android:background="#D1F0FF">
+        <com.mgg.demo.mggwidgets.widgets.LiveItemView
+            android:id="@+id/live_teacher"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                    android:id="@+id/live_me"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"/>
+                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                    android:id="@+id/live1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll2"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                    android:id="@+id/live2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"/>
+                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                    android:id="@+id/live3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

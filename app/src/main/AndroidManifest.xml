@@ -20,6 +20,7 @@
         <activity android:name=".RoundImageViewActivity"/>
         <activity android:name=".SvgActivity"/>
         <activity android:name=".CalendarActivity"/>
+        <activity android:name=".LiveActivity"/>
     </application>
 
 </manifest>

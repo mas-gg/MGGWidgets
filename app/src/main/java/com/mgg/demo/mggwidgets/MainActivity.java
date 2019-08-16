@@ -28,4 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public void goCalendarActivity(View view) {
         CalendarActivity.start(this);
     }
+
+    public void goLiveActivity(View view) {
+        LiveActivity.start(this);
+    }
 }
