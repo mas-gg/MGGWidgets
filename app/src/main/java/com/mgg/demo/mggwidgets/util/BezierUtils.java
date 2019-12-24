@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Jiang zinc
- * @date 创建时间：2019/1/5
- * @description 贝塞尔曲线工具
+ * 贝塞尔曲线工具
  */
 public class BezierUtils {
+    private BezierUtils() {
+    }
 
     // x轴坐标
     public static final int X_TYPE = 1;

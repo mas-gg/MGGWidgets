@@ -3,13 +3,16 @@ package com.mgg.demo.mggwidgets.util;
 import android.content.Context;
 import android.util.TypedValue;
 
+import static android.util.TypedValue.COMPLEX_UNIT_DIP;
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
+
 /**
  * Created by mgg on 2018/6/15.
+ * 像素密度-dp、sp与px转换
  */
 
 public class DensityUtils {
     private DensityUtils() {
-        throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     public static float getDensity(Context context) {
@@ -17,11 +20,11 @@ public class DensityUtils {
     }
 
     public static int dp2px(Context context, float dpVal) {
-        return (int) TypedValue.applyDimension(1, dpVal, context.getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(COMPLEX_UNIT_DIP, dpVal, context.getResources().getDisplayMetrics());
     }
 
     public static int sp2px(Context context, float spVal) {
-        return (int)TypedValue.applyDimension(2, spVal, context.getResources().getDisplayMetrics());
+        return (int)TypedValue.applyDimension(COMPLEX_UNIT_SP, spVal, context.getResources().getDisplayMetrics());
     }
 
     public static float px2dp(Context context, float pxVal) {

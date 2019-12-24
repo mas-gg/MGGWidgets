@@ -11,7 +11,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.mgg.demo.mggwidgets.fragment.LiveFragment
 
-class LiveActivity : AppCompatActivity() {
+class LiveActivity : BaseActivity() {
 
     companion object {
         @JvmStatic

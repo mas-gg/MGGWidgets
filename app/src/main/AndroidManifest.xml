@@ -21,6 +21,7 @@
         <activity android:name=".SvgActivity"/>
         <activity android:name=".CalendarActivity"/>
         <activity android:name=".LiveActivity"/>
+        <activity android:name=".CoroutineActivity"/>
     </application>
 
 </manifest>

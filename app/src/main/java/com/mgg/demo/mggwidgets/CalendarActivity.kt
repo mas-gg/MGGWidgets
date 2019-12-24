@@ -15,7 +15,7 @@ import com.mgg.demo.mggwidgets.util.CalendarUtils
 import kotlinx.android.synthetic.main.activity_calendar.*
 import java.util.*
 
-class CalendarActivity : AppCompatActivity() {
+class CalendarActivity : BaseActivity() {
 
     private lateinit var mAdapter: CalendarAdapter
     private lateinit var currentDate: Date

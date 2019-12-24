@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_svg.*
 
-class SvgActivity : AppCompatActivity() {
+class SvgActivity : BaseActivity() {
     var pinAnimEnd=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
