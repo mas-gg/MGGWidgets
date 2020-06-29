@@ -31,4 +31,8 @@ public class MainActivity extends BaseActivity {
     public void goLiveActivity(View view) {
         LiveActivity.start(this);
     }
+
+    public void goRecordVideoActivity(View view) {
+        startActivity(new Intent(MainActivity.this,RecordVideoActivity.class));
+    }
 }

@@ -29,6 +29,11 @@
         android:layout_height="wrap_content"
         android:text="直播"
         android:onClick="goLiveActivity"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="使用Camera2录视频"
+        android:onClick="goRecordVideoActivity"/>
 
 
 
