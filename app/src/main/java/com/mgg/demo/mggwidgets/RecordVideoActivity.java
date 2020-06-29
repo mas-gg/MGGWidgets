@@ -56,7 +56,7 @@ public class RecordVideoActivity extends BaseActivity {
     private static final int RECORDER_VIDEO_FPS = 30;
     //系统相册路径
     public static final String RECORD_CACHE_FOLDER = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + "/";
-    private static final Size videoSize = new Size(2048, 1536);
+    private static final Size videoSize = new Size(1920, 1080);
     CameraManager cameraManager;
     CameraCharacteristics characteristics;
     CameraCaptureSession session;
@@ -114,7 +114,7 @@ public class RecordVideoActivity extends BaseActivity {
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                surfaceView.setAspectRatio(videoSize.getHeight(), videoSize.getWidth());
+                surfaceView.setAspectRatio(videoSize.getWidth(), videoSize.getHeight());
                 surfaceView.post(new Runnable() {
                     @Override
                     public void run() {

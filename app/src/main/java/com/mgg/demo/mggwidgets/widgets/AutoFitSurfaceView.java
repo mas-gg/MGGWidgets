@@ -29,7 +29,7 @@ public class AutoFitSurfaceView extends SurfaceView {
 
     public void setAspectRatio(int width, int height) {
         if (width > 0 && height > 0) {
-            aspectRatio = ((float) width) / height;
+            aspectRatio = ((float) height) / width;
             getHolder().setFixedSize(width, height);
             requestLayout();
         } else {
