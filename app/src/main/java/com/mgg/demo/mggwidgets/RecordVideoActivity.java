@@ -35,6 +35,8 @@ import android.widget.Toast;
 import com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView;
 import com.mgg.demo.mggwidgets.widgets.RecordButton;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -79,8 +81,7 @@ public class RecordVideoActivity extends BaseActivity {
     AppCompatButton btnSwitch;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAllPermissionsGranted() {
         initView();
         initHandler();
         try {
@@ -89,6 +90,12 @@ public class RecordVideoActivity extends BaseActivity {
             e.printStackTrace();
         }
         initSurfaceHolder();
+    }
+
+    @NotNull
+    @Override
+    public String[] mustPermissions() {
+        return new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     }
 
     void initView() {
@@ -349,7 +356,8 @@ public class RecordVideoActivity extends BaseActivity {
         if (btnRecord.isRecording()) {
             autoStopRecord();
         } else {
-            new File(outputFilePath).delete();//删除recorder自动生成的空mp4文件
+            if (!TextUtils.isEmpty(outputFilePath))
+                new File(outputFilePath).delete();//删除recorder自动生成的空mp4文件
         }
         if (cameraDevice != null) {
             cameraDevice.close();
