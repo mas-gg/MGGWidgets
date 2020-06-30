@@ -11,17 +11,14 @@ import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
-import android.media.MediaCodec;
 import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
@@ -50,7 +47,6 @@ import static android.hardware.camera2.CameraMetadata.INFO_SUPPORTED_HARDWARE_LE
  * created by mgg
  * 2020/6/28
  */
-@RequiresApi(api = Build.VERSION_CODES.M)
 public class RecordVideoActivity extends BaseActivity {
     private static final int RECORDER_VIDEO_BITRATE = 10_000_000;
     private static final int RECORDER_VIDEO_FPS = 30;
@@ -217,14 +213,8 @@ public class RecordVideoActivity extends BaseActivity {
     }
 
     void initSession() throws CameraAccessException {
-        recorderSurface = MediaCodec.createPersistentInputSurface();
-        initMediaRecorder(recorderSurface);
-        try {
-            recorder.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        recorder.release();
+        initMediaRecorder();
+        recorderSurface = recorder.getSurface();
 
         List<Surface> surfaceList = new ArrayList<>();
         surfaceList.add(surfaceView.getHolder().getSurface());
@@ -257,7 +247,7 @@ public class RecordVideoActivity extends BaseActivity {
         }, cameraHandler);
     }
 
-    void initMediaRecorder(Surface surface) {
+    void initMediaRecorder() {
         recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
@@ -268,19 +258,17 @@ public class RecordVideoActivity extends BaseActivity {
         recorder.setVideoSize(videoSize.getWidth(), videoSize.getHeight());
         recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        recorder.setInputSurface(surface);
+        try {
+            recorder.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     void startRecord() {
         try {
             session.setRepeatingRequest(recordRequest, null, cameraHandler);
         } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
-        initMediaRecorder(recorderSurface);
-        try {
-            recorder.prepare();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         recorder.start();

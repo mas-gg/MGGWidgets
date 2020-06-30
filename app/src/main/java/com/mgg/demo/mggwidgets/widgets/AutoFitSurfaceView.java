@@ -39,6 +39,7 @@ public class AutoFitSurfaceView extends SurfaceView {
 
     public void setScaleType(@IntRange(from = SCALE_TYPE_CENTER_CROP, to = SCALE_TYPE_FIT_CENTER) int scaleType) {
         this.scaleType = scaleType;
+        requestLayout();
     }
 
     @Override
