@@ -29,6 +29,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Toast;
 
 import com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView;
 import com.mgg.demo.mggwidgets.widgets.RecordButton;
@@ -37,11 +38,13 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 import static android.hardware.camera2.CameraAccessException.CAMERA_DISABLED;
 import static android.hardware.camera2.CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY;
+import static android.media.MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED;
 
 /**
  * created by mgg
@@ -50,6 +53,7 @@ import static android.hardware.camera2.CameraMetadata.INFO_SUPPORTED_HARDWARE_LE
 public class RecordVideoActivity extends BaseActivity {
     private static final int RECORDER_VIDEO_BITRATE = 10_000_000;
     private static final int RECORDER_VIDEO_FPS = 30;
+    private static final int RECORDER_VIDEO_MAX_DURATION = 10_000;
     //系统相册路径
     public static final String RECORD_CACHE_FOLDER = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + "/";
     private static final Size videoSize = new Size(1920, 1080);
@@ -63,7 +67,7 @@ public class RecordVideoActivity extends BaseActivity {
     MediaRecorder recorder;
     HandlerThread cameraThread;
     Handler cameraHandler;
-    File outputFile;
+    String outputFilePath;//绝对路径
     String frontCameraId;
     String backCameraId;
 
@@ -73,27 +77,27 @@ public class RecordVideoActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record_video);
         initView();
         initHandler();
+        try {
+            initCameraIds();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
         initSurfaceHolder();
     }
 
     void initView() {
+        setContentView(R.layout.activity_record_video);
         surfaceView = findViewById(R.id.surface_view);
         btnRecord = findViewById(R.id.btn_record);
 
         btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int w = surfaceView.getWidth();
-                int h = surfaceView.getHeight();
-                Log.d("mgg", "onClick: " + w + "  " + h);
                 if (btnRecord.getIsRecording()) {
-                    btnRecord.setRecording(false);
                     stopRecord();
                 } else {
-                    btnRecord.setRecording(true);
                     startRecord();
                 }
             }
@@ -114,11 +118,7 @@ public class RecordVideoActivity extends BaseActivity {
                 surfaceView.post(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            initCamera();
-                        } catch (CameraAccessException e) {
-                            e.printStackTrace();
-                        }
+                        openCamera();
                     }
                 });
             }
@@ -135,19 +135,9 @@ public class RecordVideoActivity extends BaseActivity {
         });
     }
 
-    void initCamera() throws CameraAccessException {
-        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        outputFile = new File(getFilesDir(), new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CHINA).toString() + ".mp4");
-        initCameraIds();
-        if (!TextUtils.isEmpty(backCameraId)) {
-            characteristics = cameraManager.getCameraCharacteristics(backCameraId);
-        } else {
-            throw new CameraAccessException(CAMERA_DISABLED);
-        }
-        openCamera();
-    }
-
     void initCameraIds() throws CameraAccessException {
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+
         String[] cameraIds = cameraManager.getCameraIdList();
         int length = cameraIds.length;
         for (int i = 0; i < length; i++) {
@@ -163,14 +153,20 @@ public class RecordVideoActivity extends BaseActivity {
             } else if (characteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK) {
                 if (TextUtils.isEmpty(backCameraId)) {
                     backCameraId = cameraIds[i];
-                    StreamConfigurationMap configurationMap = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-                    Size[] sizes = configurationMap.getOutputSizes(MediaRecorder.class);
-                    int length1 = sizes.length;
-                    for (int j = 0; j < length1; j++) {
-                        Log.d("mgg", "back camera supported size: " + sizes[j].getWidth() + " x " + sizes[j].getHeight());
-                    }
                 }
             }
+        }
+
+        if (!TextUtils.isEmpty(backCameraId)) {
+            characteristics = cameraManager.getCameraCharacteristics(backCameraId);
+            StreamConfigurationMap configurationMap = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+            Size[] sizes = configurationMap.getOutputSizes(MediaRecorder.class);
+            int length1 = sizes.length;
+            for (int j = 0; j < length1; j++) {
+                Log.d("mgg", "back camera supported size: " + sizes[j].getWidth() + " x " + sizes[j].getHeight());
+            }
+        } else {
+            throw new CameraAccessException(CAMERA_DISABLED);
         }
     }
 
@@ -192,7 +188,7 @@ public class RecordVideoActivity extends BaseActivity {
 
                 @Override
                 public void onClosed(@NonNull CameraDevice camera) {
-                    cameraDevice = null;
+
                 }
 
                 @Override
@@ -214,7 +210,6 @@ public class RecordVideoActivity extends BaseActivity {
 
     void initSession() throws CameraAccessException {
         initMediaRecorder();
-        recorderSurface = recorder.getSurface();
 
         List<Surface> surfaceList = new ArrayList<>();
         surfaceList.add(surfaceView.getHolder().getSurface());
@@ -222,39 +217,39 @@ public class RecordVideoActivity extends BaseActivity {
         cameraDevice.createCaptureSession(surfaceList, new CameraCaptureSession.StateCallback() {
 
             @Override
-            public void onConfigured(@NonNull CameraCaptureSession session) {
-                RecordVideoActivity.this.session = session;
-                try {
-                    CaptureRequest.Builder builder = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-                    builder.addTarget(surfaceView.getHolder().getSurface());
-                    previewRequest = builder.build();
-                    session.setRepeatingRequest(previewRequest, null, cameraHandler);
-
-                    builder = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
-                    builder.addTarget(surfaceView.getHolder().getSurface());
-                    builder.addTarget(recorderSurface);
-                    builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, new Range(RECORDER_VIDEO_FPS, RECORDER_VIDEO_FPS));
-                    recordRequest = builder.build();
-                } catch (CameraAccessException e) {
-                    e.printStackTrace();
-                }
+            public void onConfigured(@NonNull CameraCaptureSession captureSession) {
+                session = captureSession;
+                createCaptureRequest();
+                startPreview();
             }
 
             @Override
             public void onConfigureFailed(@NonNull CameraCaptureSession session) {
-                finish();
+                onPreviewFail();
             }
         }, cameraHandler);
     }
 
     void initMediaRecorder() {
+        outputFilePath = RECORD_CACHE_FOLDER + new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.CHINA).format(new Date()) + ".mp4";
+
         recorder = new MediaRecorder();
+        recorder.setOnInfoListener(new MediaRecorder.OnInfoListener() {
+            @Override
+            public void onInfo(MediaRecorder mr, int what, int extra) {
+                if (what == MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
+                    Toast.makeText(RecordVideoActivity.this, "录制已达到最大时长", Toast.LENGTH_SHORT).show();
+                    stopRecord();
+                }
+            }
+        });
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        recorder.setOutputFile(outputFile.getAbsolutePath());
+        recorder.setOutputFile(outputFilePath);
         recorder.setVideoEncodingBitRate(RECORDER_VIDEO_BITRATE);
         recorder.setVideoFrameRate(RECORDER_VIDEO_FPS);
+        recorder.setMaxDuration(RECORDER_VIDEO_MAX_DURATION);
         recorder.setVideoSize(videoSize.getWidth(), videoSize.getHeight());
         recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
@@ -263,25 +258,68 @@ public class RecordVideoActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //recorderSurface初始化
+        recorderSurface = recorder.getSurface();
     }
 
-    void startRecord() {
+    void onPreviewFail() {
+        Toast.makeText(RecordVideoActivity.this, "预览失败，请检查分辨率是否支持", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    void createCaptureRequest() {
         try {
+            CaptureRequest.Builder builder = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
+            builder.addTarget(surfaceView.getHolder().getSurface());
+            previewRequest = builder.build();
+
+            builder = session.getDevice().createCaptureRequest(CameraDevice.TEMPLATE_RECORD);
+            builder.addTarget(surfaceView.getHolder().getSurface());
+            builder.addTarget(recorderSurface);
+            builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, new Range(RECORDER_VIDEO_FPS, RECORDER_VIDEO_FPS));
+            recordRequest = builder.build();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void startPreview() {
+        try {
+            session.setRepeatingRequest(previewRequest, null, cameraHandler);
             session.setRepeatingRequest(recordRequest, null, cameraHandler);
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    void startRecord() {
+        btnRecord.setRecording(true);
         recorder.start();
     }
 
     void stopRecord() {
+        autoStopRecord();
+        openMp4File();
+        try {
+            initSession();//录制完画面暂停，需要重新开启预览，这里会重新初始化recorder和outputFilePath，所以放到最后
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void autoStopRecord() {
+        btnRecord.setRecording(false);
         recorder.stop();
+        recorder.release();
         MediaScannerConnection.scanFile(
-                this, new String[]{outputFile.getAbsolutePath()}, null, null);
+                this, new String[]{outputFilePath}, null, null);
+    }
+
+    void openMp4File() {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setType(MimeTypeMap.getSingleton().getMimeTypeFromExtension("mp4"));
-        intent.setData(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", outputFile));
+        intent.setData(FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", new File(outputFilePath)));
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -289,6 +327,11 @@ public class RecordVideoActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        if (btnRecord.getIsRecording()) {
+            autoStopRecord();
+        } else {
+            new File(outputFilePath).delete();//删除recorder自动生成的空mp4文件
+        }
         if (cameraDevice != null) {
             cameraDevice.close();
         }
@@ -297,7 +340,8 @@ public class RecordVideoActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        cameraThread.quitSafely();
+        if (cameraThread != null)
+            cameraThread.quitSafely();
         if (recorder != null)
             recorder.release();
         if (recorderSurface != null)
