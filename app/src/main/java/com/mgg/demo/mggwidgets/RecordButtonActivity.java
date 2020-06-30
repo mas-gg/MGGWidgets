@@ -16,6 +16,6 @@ public class RecordButtonActivity extends AppCompatActivity {
 
     public void onRecordButtonClick(View view) {
         RecordButton recordButton= (RecordButton) view;
-        recordButton.setRecording(!recordButton.getIsRecording());
+        recordButton.setRecording(!recordButton.isRecording());
     }
 }

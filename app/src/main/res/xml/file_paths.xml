@@ -20,4 +20,8 @@
     <external-cache-path
         name="external_cache"
         path="." />
+    <!--外部SD卡-->
+    <root-path
+        name="root"
+        path="." />
 </paths>

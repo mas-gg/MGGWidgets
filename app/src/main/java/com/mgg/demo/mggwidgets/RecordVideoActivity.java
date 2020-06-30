@@ -21,6 +21,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Range;
@@ -45,6 +46,8 @@ import java.util.Locale;
 import static android.hardware.camera2.CameraAccessException.CAMERA_DISABLED;
 import static android.hardware.camera2.CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY;
 import static android.media.MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED;
+import static com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView.SCALE_TYPE_CENTER_CROP;
+import static com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView.SCALE_TYPE_FIT_CENTER;
 
 /**
  * created by mgg
@@ -73,6 +76,7 @@ public class RecordVideoActivity extends BaseActivity {
 
     AutoFitSurfaceView surfaceView;
     RecordButton btnRecord;
+    AppCompatButton btnSwitch;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,11 +95,25 @@ public class RecordVideoActivity extends BaseActivity {
         setContentView(R.layout.activity_record_video);
         surfaceView = findViewById(R.id.surface_view);
         btnRecord = findViewById(R.id.btn_record);
+        btnSwitch = findViewById(R.id.btn_switch);
+        btnSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (surfaceView.getScaleType() == SCALE_TYPE_CENTER_CROP) {
+                    surfaceView.setScaleType(SCALE_TYPE_FIT_CENTER);
+                    btnSwitch.setText("充满");
+                } else {
+                    surfaceView.setScaleType(SCALE_TYPE_CENTER_CROP);
+                    btnSwitch.setText("居中");
+                }
+            }
+        });
 
         btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (btnRecord.getIsRecording()) {
+                if (btnRecord.isAnimating()) return;
+                if (btnRecord.isRecording()) {
                     stopRecord();
                 } else {
                     startRecord();
@@ -250,6 +268,7 @@ public class RecordVideoActivity extends BaseActivity {
         recorder.setVideoEncodingBitRate(RECORDER_VIDEO_BITRATE);
         recorder.setVideoFrameRate(RECORDER_VIDEO_FPS);
         recorder.setMaxDuration(RECORDER_VIDEO_MAX_DURATION);
+        recorder.setOrientationHint(90);//相机默认是横向的，这里手动变为竖向，比如设置的size是1920x1080，输出的mp4分辨率为1080x1920
         recorder.setVideoSize(videoSize.getWidth(), videoSize.getHeight());
         recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
@@ -327,7 +346,7 @@ public class RecordVideoActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (btnRecord.getIsRecording()) {
+        if (btnRecord.isRecording()) {
             autoStopRecord();
         } else {
             new File(outputFilePath).delete();//删除recorder自动生成的空mp4文件

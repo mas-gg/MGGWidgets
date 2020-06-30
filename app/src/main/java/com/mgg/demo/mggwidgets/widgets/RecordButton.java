@@ -21,7 +21,7 @@ import com.mgg.demo.mggwidgets.util.DensityUtils;
 
 public class RecordButton extends View {
     private static String TAG = "RecordButton";
-    private int DURATION;
+    private int DURATION = 250;
     private int dp_ring_side;
     private int dp_between_ring_circle;
     private int dp_square_radius;
@@ -80,7 +80,7 @@ public class RecordButton extends View {
                 dp_square_side = (int) typedArray.getDimension(R.styleable.RecordButton_square_side, DensityUtils.dp2px(context, 22));
                 color_ring = typedArray.getColor(R.styleable.RecordButton_ring_color,getResources().getColor(R.color.color_white));
                 color_circle = typedArray.getColor(R.styleable.RecordButton_circle_color,getResources().getColor(R.color.color_00edd9));
-                DURATION = typedArray.getInt(R.styleable.RecordButton_duration,250);
+                DURATION = typedArray.getInt(R.styleable.RecordButton_duration,DURATION);
             } finally {
                 if (typedArray != null) {
                     typedArray.recycle();
@@ -135,6 +135,10 @@ public class RecordButton extends View {
         canvas.drawRoundRect(circle, radius, radius, paintCircle);
     }
 
+    public boolean isAnimating() {
+        return isAnimating;
+    }
+
     public void setRecording(boolean begin){
         if (begin!=isRecording && !isAnimating){
             Animation animation=new ScaleAnimation(1,1,1,1);
@@ -180,7 +184,7 @@ public class RecordButton extends View {
 
     }
 
-    public boolean getIsRecording(){
+    public boolean isRecording(){
         return isRecording;
     }
 

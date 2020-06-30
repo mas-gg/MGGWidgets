@@ -10,8 +10,8 @@ import android.view.SurfaceView;
  * 2020/6/28
  */
 public class AutoFitSurfaceView extends SurfaceView {
-    private static final int SCALE_TYPE_CENTER_CROP = 0;//充满布局，垂直或水平方向会有裁剪
-    private static final int SCALE_TYPE_FIT_CENTER = 1;//不充满布局，垂直或水平方向会有黑边
+    public static final int SCALE_TYPE_CENTER_CROP = 0;//充满布局，垂直或水平方向会有裁剪
+    public static final int SCALE_TYPE_FIT_CENTER = 1;//不充满布局，垂直或水平方向会有黑边
     private int scaleType = SCALE_TYPE_FIT_CENTER;
     private float aspectRatio = 0f;
 
@@ -40,6 +40,10 @@ public class AutoFitSurfaceView extends SurfaceView {
     public void setScaleType(@IntRange(from = SCALE_TYPE_CENTER_CROP, to = SCALE_TYPE_FIT_CENTER) int scaleType) {
         this.scaleType = scaleType;
         requestLayout();
+    }
+
+    public int getScaleType() {
+        return scaleType;
     }
 
     @Override
