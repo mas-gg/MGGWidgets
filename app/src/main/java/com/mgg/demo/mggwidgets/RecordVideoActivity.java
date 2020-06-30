@@ -13,12 +13,10 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
-import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.AppCompatButton;
@@ -61,7 +59,7 @@ public class RecordVideoActivity extends BaseActivity {
     private static final int RECORDER_VIDEO_MAX_DURATION = 10_000;
     //系统相册路径
     public static final String RECORD_CACHE_FOLDER = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + "/";
-    private static final Size videoSize = new Size(1920, 1080);
+    private Size videoSize = new Size(1920, 1080);
     CameraManager cameraManager;
     CameraCharacteristics characteristics;
     CameraCaptureSession session;
@@ -184,15 +182,35 @@ public class RecordVideoActivity extends BaseActivity {
 
         if (!TextUtils.isEmpty(backCameraId)) {
             characteristics = cameraManager.getCameraCharacteristics(backCameraId);
-            StreamConfigurationMap configurationMap = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-            Size[] sizes = configurationMap.getOutputSizes(MediaRecorder.class);
-            int length1 = sizes.length;
-            for (int j = 0; j < length1; j++) {
-                Log.d("mgg", "back camera supported size: " + sizes[j].getWidth() + " x " + sizes[j].getHeight());
-            }
+            resetSize();
         } else {
             throw new CameraAccessException(CAMERA_DISABLED);
         }
+    }
+
+    /**
+     * 找到所支持的最接近的size
+     */
+    void resetSize() {
+        StreamConfigurationMap configurationMap = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+        Size[] sizes = configurationMap.getOutputSizes(MediaRecorder.class);
+        int length = sizes.length;
+        Size size = sizes[0];
+        int standardArea = videoSize.getHeight() * videoSize.getWidth();
+        int defaultArea = 0;
+        int temp;
+        for (int i = 0; i < length; i++) {
+            Log.d("mgg", "current camera supported size: " + size.toString() + "  " + size.getWidth() * size.getHeight());
+            if (sizes[i].equals(videoSize)) {
+                return;//完全匹配
+            }
+            temp = sizes[i].getWidth() * sizes[i].getHeight();
+            if (temp <= standardArea && temp > defaultArea) {
+                size = sizes[i];
+                defaultArea = temp;
+            }
+        }
+        videoSize = size;
     }
 
     void openCamera() {
