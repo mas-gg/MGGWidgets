@@ -371,7 +371,7 @@ public class RecordVideoActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (btnRecord.isRecording()) {
+        if (btnRecord != null && btnRecord.isRecording()) {
             autoStopRecord();
         } else {
             if (!TextUtils.isEmpty(outputFilePath))

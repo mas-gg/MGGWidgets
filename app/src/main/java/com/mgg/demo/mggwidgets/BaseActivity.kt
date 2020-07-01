@@ -88,16 +88,14 @@ open class BaseActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (permissions.isNotEmpty()) {
-            run breaking@{
-                grantResults.forEachIndexed { index, it ->
-                    if (it != PackageManager.PERMISSION_GRANTED) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !shouldShowRequestPermissionRationale(permissions[index])) {
-                            onPermissionIgnore(permissions[index])
-                        } else {
-                            onPermissionDenied(permissions[index])
-                        }
-                        return@breaking
+            grantResults.forEachIndexed { index, it ->
+                if (it != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !shouldShowRequestPermissionRationale(permissions[index])) {
+                        onPermissionIgnore(permissions[index])
+                    } else {
+                        onPermissionDenied(permissions[index])
                     }
+                    return
                 }
             }
         }
