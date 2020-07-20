@@ -8,8 +8,8 @@ android {
         applicationId "com.mgg.demo"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode project.properties.'versionCode'.toString().toInteger()
+        versionName project.properties.'versionName'.toString()
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
