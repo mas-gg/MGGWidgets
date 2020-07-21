@@ -26,6 +26,7 @@
         <activity android:name=".LiveActivity"/>
         <activity android:name=".CoroutineActivity"/>
         <activity android:name=".RecordVideoActivity"/>
+        <activity android:name=".TabActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

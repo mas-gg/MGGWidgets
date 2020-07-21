@@ -35,6 +35,11 @@
         android:text="使用Camera2录视频"
         android:onClick="goRecordVideoActivity"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="切换tab扩散渐变效果"
+        android:onClick="goTabActivity"/>
 
 
 
