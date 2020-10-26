@@ -43,4 +43,8 @@ public class MainActivity extends BaseActivity {
     public void goTabActivity(View view) {
         startActivity(new Intent(MainActivity.this, TabActivity.class));
     }
+
+    public void goDimpleActivity(View view) {
+        startActivity(new Intent(MainActivity.this, DimpleActivity.class));
+    }
 }
