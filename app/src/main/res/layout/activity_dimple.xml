@@ -16,5 +16,5 @@
         android:layout_height="90dp"
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_head_default" />
+        app:srcCompat="@drawable/ic_head_default" />
 </RelativeLayout>

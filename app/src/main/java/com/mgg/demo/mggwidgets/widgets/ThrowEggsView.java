@@ -8,11 +8,12 @@ import android.animation.TypeEvaluator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PointF;
-import android.support.annotation.IntRange;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;

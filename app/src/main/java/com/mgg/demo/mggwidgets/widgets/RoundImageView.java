@@ -10,9 +10,11 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+
 import com.mgg.demo.mggwidgets.R;
 import com.mgg.demo.mggwidgets.util.DensityUtils;
 
@@ -20,7 +22,7 @@ import com.mgg.demo.mggwidgets.util.DensityUtils;
  * Created by mgg on 2018/7/5.
  */
 
-public class RoundImageView extends ImageView{
+public class RoundImageView extends AppCompatImageView {
     private static final int MODE_ROUND=1;
     private static final int MODE_CIRCLE=2;
     private static final int MODE_DEFAULT=0;

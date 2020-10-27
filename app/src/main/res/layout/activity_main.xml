@@ -47,4 +47,11 @@
         android:onClick="goDimpleActivity"
         android:text="粒子扩散效果" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goMotionActivity"
+        android:text="MotionLayout" />
+
+
 </LinearLayout>

@@ -1,9 +1,10 @@
 package com.mgg.demo.mggwidgets;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.mgg.demo.mggwidgets.adapter.TabAdapter;
 import com.mgg.demo.mggwidgets.bean.TabBean;

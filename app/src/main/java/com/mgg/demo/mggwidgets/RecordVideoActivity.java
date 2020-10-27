@@ -13,13 +13,16 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.MediaRecorder;
 import android.media.MediaScannerConnection;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v7.widget.AppCompatButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Range;
@@ -32,9 +35,6 @@ import android.widget.Toast;
 
 import com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView;
 import com.mgg.demo.mggwidgets.widgets.RecordButton;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -53,6 +53,7 @@ import static com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView.SCALE_TYPE_FIT_
  * created by mgg
  * 2020/6/28
  */
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class RecordVideoActivity extends BaseActivity {
     private static final int RECORDER_VIDEO_BITRATE = 10_000_000;
     private static final int RECORDER_VIDEO_FPS = 30;
@@ -90,7 +91,6 @@ public class RecordVideoActivity extends BaseActivity {
         initSurfaceHolder();
     }
 
-    @NotNull
     @Override
     public String[] mustPermissions() {
         return new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};

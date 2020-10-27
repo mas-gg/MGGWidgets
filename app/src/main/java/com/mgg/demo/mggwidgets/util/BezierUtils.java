@@ -1,7 +1,8 @@
 package com.mgg.demo.mggwidgets.util;
 
 import android.graphics.PointF;
-import android.support.annotation.IntRange;
+
+import androidx.annotation.IntRange;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,10 @@
 package com.mgg.demo.mggwidgets.widgets;
 
 import android.content.Context;
-import android.support.annotation.IntRange;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
+
+import androidx.annotation.IntRange;
 
 /**
  * created by mgg

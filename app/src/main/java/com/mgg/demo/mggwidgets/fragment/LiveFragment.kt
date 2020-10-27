@@ -3,7 +3,6 @@ package com.mgg.demo.mggwidgets.fragment
 import android.animation.*
 import android.graphics.PointF
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.animation.*
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
 import com.mgg.demo.mggwidgets.R
 import com.mgg.demo.mggwidgets.util.DensityUtils
 import com.mgg.demo.mggwidgets.widgets.ThrowEggsView
@@ -25,14 +25,14 @@ class LiveFragment : Fragment() {
     private var canClick = true
     private lateinit var interpolator: Interpolator
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_live, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_close.setOnClickListener {
-            activity.finish()
+            activity?.finish()
         }
         live_teacher?.setName("teacher")
         live_me?.setName("me")
@@ -179,7 +179,7 @@ class LiveFragment : Fragment() {
         val layoutParams= LinearLayout.LayoutParams(iv_egg.width,iv_egg.height)
         imageView.layoutParams=layoutParams
 
-        var viewGroup=activity.window.decorView as ViewGroup
+        var viewGroup=activity?.window?.decorView as ViewGroup
         viewGroup.addView(imageView)
 
         startPoint.x +=view.width/2-iv_egg.width/2
