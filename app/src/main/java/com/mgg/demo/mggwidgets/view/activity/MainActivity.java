@@ -51,4 +51,8 @@ public class MainActivity extends BaseActivity {
     public void goMotionActivity(View view) {
         startActivity(new Intent(MainActivity.this, MotionActivity.class));
     }
+
+    public void goFlexBoxActivity(View view) {
+        startActivity(new Intent(MainActivity.this, FlexActivity.class));
+    }
 }

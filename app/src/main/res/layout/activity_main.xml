@@ -1,57 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="利用差值器实现形状补间动画"
-        android:onClick="goRecordButtonActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="带圆角的ImageView"
-        android:onClick="goRoundImageViewActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Svg实战"
-        android:onClick="goSvgActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="日历"
-        android:onClick="goCalendarActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="直播"
-        android:onClick="goLiveActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="使用Camera2录视频"
-        android:onClick="goRecordVideoActivity"/>
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="切换tab扩散渐变效果"
-        android:onClick="goTabActivity"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goRecordButtonActivity"
+            android:text="利用差值器实现形状补间动画" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="goDimpleActivity"
-        android:text="粒子扩散效果" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goRoundImageViewActivity"
+            android:text="带圆角的ImageView" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="goMotionActivity"
-        android:text="MotionLayout" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goSvgActivity"
+            android:text="Svg实战" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goCalendarActivity"
+            android:text="日历" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goLiveActivity"
+            android:text="直播" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goRecordVideoActivity"
+            android:text="使用Camera2录视频" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goTabActivity"
+            android:text="切换tab扩散渐变效果" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goDimpleActivity"
+            android:text="粒子扩散效果" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goMotionActivity"
+            android:text="MotionLayout" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="goFlexBoxActivity"
+            android:text="仿flex box流式布局" />
+
+    </LinearLayout>
 
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>
