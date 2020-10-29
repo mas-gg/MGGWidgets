@@ -1,10 +1,12 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.animation.LinearInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.mgg.demo.mggwidgets.R;
 
 public class DimpleActivity extends AppCompatActivity {
 

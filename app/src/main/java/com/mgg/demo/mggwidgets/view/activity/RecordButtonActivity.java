@@ -1,11 +1,12 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mgg.demo.mggwidgets.widgets.RecordButton;
+import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.view.widgets.RecordButton;
 
 public class RecordButtonActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -33,8 +33,11 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
-import com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView;
-import com.mgg.demo.mggwidgets.widgets.RecordButton;
+import com.mgg.demo.mggwidgets.BaseActivity;
+import com.mgg.demo.mggwidgets.BuildConfig;
+import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView;
+import com.mgg.demo.mggwidgets.view.widgets.RecordButton;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -46,8 +49,8 @@ import java.util.Locale;
 import static android.hardware.camera2.CameraAccessException.CAMERA_DISABLED;
 import static android.hardware.camera2.CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY;
 import static android.media.MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED;
-import static com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView.SCALE_TYPE_CENTER_CROP;
-import static com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView.SCALE_TYPE_FIT_CENTER;
+import static com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView.SCALE_TYPE_CENTER_CROP;
+import static com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView.SCALE_TYPE_FIT_CENTER;
 
 /**
  * created by mgg

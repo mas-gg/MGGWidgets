@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.adapter;
+package com.mgg.demo.mggwidgets.view.adapter;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mgg.demo.mggwidgets.R;
 import com.mgg.demo.mggwidgets.bean.TabBean;
-import com.mgg.demo.mggwidgets.widgets.RippleView;
+import com.mgg.demo.mggwidgets.view.widgets.RippleView;
 
 import java.util.List;
 

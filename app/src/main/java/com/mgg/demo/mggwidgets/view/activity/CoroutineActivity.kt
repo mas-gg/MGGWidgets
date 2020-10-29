@@ -1,7 +1,8 @@
-package com.mgg.demo.mggwidgets
+package com.mgg.demo.mggwidgets.view.activity
 
 import android.os.Bundle
 import android.view.View
+import com.mgg.demo.mggwidgets.BaseActivity
 import org.junit.Test
 
 /**

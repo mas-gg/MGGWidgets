@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.mgg.demo.mggwidgets.widgets.AutoFitSurfaceView
+    <com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView
         android:id="@+id/surface_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
-    <com.mgg.demo.mggwidgets.widgets.RecordButton
+    <com.mgg.demo.mggwidgets.view.widgets.RecordButton
         android:id="@+id/btn_record"
         android:layout_width="70dp"
         android:layout_height="70dp"

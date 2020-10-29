@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets
+package com.mgg.demo.mggwidgets.view.activity
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mgg.demo.mggwidgets.BaseActivity
+import com.mgg.demo.mggwidgets.R
 import com.mgg.demo.mggwidgets.util.CalendarItem
 import com.mgg.demo.mggwidgets.util.CalendarUtils
 import kotlinx.android.synthetic.main.activity_calendar.*

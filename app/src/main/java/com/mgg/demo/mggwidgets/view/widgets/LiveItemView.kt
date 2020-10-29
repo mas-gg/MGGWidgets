@@ -1,9 +1,8 @@
-package com.mgg.demo.mggwidgets.widgets
+package com.mgg.demo.mggwidgets.view.widgets
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.RelativeLayout
 import com.mgg.demo.mggwidgets.R
 import kotlinx.android.synthetic.main.layout_live_item.view.*

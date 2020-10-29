@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets
+package com.mgg.demo.mggwidgets.view.activity
 
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Animatable2
@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import com.mgg.demo.mggwidgets.BaseActivity
+import com.mgg.demo.mggwidgets.R
 import kotlinx.android.synthetic.main.activity_svg.*
 
 class SvgActivity : BaseActivity() {

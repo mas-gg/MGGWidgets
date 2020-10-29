@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.fragment
+package com.mgg.demo.mggwidgets.view.fragment
 
 import android.animation.*
 import android.graphics.PointF
@@ -13,8 +13,8 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.mgg.demo.mggwidgets.R
 import com.mgg.demo.mggwidgets.util.DensityUtils
-import com.mgg.demo.mggwidgets.widgets.ThrowEggsView
-import com.mgg.demo.mggwidgets.widgets.LiveItemView
+import com.mgg.demo.mggwidgets.view.widgets.ThrowEggsView
+import com.mgg.demo.mggwidgets.view.widgets.LiveItemView
 import kotlinx.android.synthetic.main.fragment_live.*
 import kotlinx.android.synthetic.main.layout_live_item.view.*
 

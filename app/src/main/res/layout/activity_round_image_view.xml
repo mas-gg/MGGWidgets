@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <com.mgg.demo.mggwidgets.widgets.RoundImageView
+    <com.mgg.demo.mggwidgets.view.widgets.RoundImageView
         android:layout_width="100dp"
         android:layout_height="70dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,7 +18,7 @@
         />
 
 
-    <com.mgg.demo.mggwidgets.widgets.RoundImageView
+    <com.mgg.demo.mggwidgets.view.widgets.RoundImageView
         android:layout_width="100dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
         android:src="@drawable/ic_bixin"
         RoundImageView:mode="round"/>
 
-    <com.mgg.demo.mggwidgets.widgets.RoundImageView
+    <com.mgg.demo.mggwidgets.view.widgets.RoundImageView
         android:layout_width="100dp"
         android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="parent"

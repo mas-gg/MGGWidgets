@@ -12,23 +12,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecordButtonActivity"/>
-        <activity android:name=".RoundImageViewActivity"/>
-        <activity android:name=".SvgActivity"/>
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".LiveActivity"/>
-        <activity android:name=".CoroutineActivity"/>
-        <activity android:name=".RecordVideoActivity"/>
-        <activity android:name=".TabActivity"/>
-        <activity android:name=".DimpleActivity"/>
-        <activity android:name=".MotionActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.RecordButtonActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.RoundImageViewActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.SvgActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.CalendarActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.LiveActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.CoroutineActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.RecordVideoActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.TabActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.DimpleActivity"/>
+        <activity android:name="com.mgg.demo.mggwidgets.view.activity.MotionActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.os.Bundle;
 
@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mgg.demo.mggwidgets.adapter.TabAdapter;
+import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.view.adapter.TabAdapter;
 import com.mgg.demo.mggwidgets.bean.TabBean;
-import com.mgg.demo.mggwidgets.widgets.CommonNavigationView;
+import com.mgg.demo.mggwidgets.view.widgets.CommonNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;

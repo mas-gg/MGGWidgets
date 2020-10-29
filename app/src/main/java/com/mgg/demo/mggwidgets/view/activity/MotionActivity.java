@@ -1,9 +1,11 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
+
+import com.mgg.demo.mggwidgets.R;
 
 
 public class MotionActivity extends AppCompatActivity {

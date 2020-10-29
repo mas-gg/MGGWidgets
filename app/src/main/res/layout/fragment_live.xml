@@ -90,7 +90,7 @@
         android:clipChildren="false"
         android:orientation="vertical"
         android:background="#D1F0FF">
-        <com.mgg.demo.mggwidgets.widgets.LiveItemView
+        <com.mgg.demo.mggwidgets.view.widgets.LiveItemView
             android:id="@+id/live_teacher"
             android:layout_margin="2dp"
             android:layout_width="match_parent"
@@ -110,14 +110,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
-                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                <com.mgg.demo.mggwidgets.view.widgets.LiveItemView
                     android:id="@+id/live_me"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_gravity="bottom"
                     android:layout_height="match_parent"
                     android:layout_marginRight="2dp"/>
-                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                <com.mgg.demo.mggwidgets.view.widgets.LiveItemView
                     android:id="@+id/live1"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -134,14 +134,14 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                <com.mgg.demo.mggwidgets.view.widgets.LiveItemView
                     android:id="@+id/live2"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_gravity="bottom"
                     android:layout_height="match_parent"
                     android:layout_marginRight="2dp"/>
-                <com.mgg.demo.mggwidgets.widgets.LiveItemView
+                <com.mgg.demo.mggwidgets.view.widgets.LiveItemView
                     android:id="@+id/live3"
                     android:layout_width="0dp"
                     android:layout_weight="1"

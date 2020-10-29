@@ -1,6 +1,9 @@
-package com.mgg.demo.mggwidgets;
+package com.mgg.demo.mggwidgets.view.activity;
 
 import android.os.Bundle;
+
+import com.mgg.demo.mggwidgets.BaseActivity;
+import com.mgg.demo.mggwidgets.R;
 
 public class RoundImageViewActivity extends BaseActivity {
 

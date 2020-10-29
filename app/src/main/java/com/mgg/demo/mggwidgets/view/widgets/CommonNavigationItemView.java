@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.widgets;
+package com.mgg.demo.mggwidgets.view.widgets;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
