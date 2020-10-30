@@ -30,6 +30,7 @@
         <activity android:name=".view.activity.DimpleActivity" />
         <activity android:name=".view.activity.MotionActivity" />
         <activity android:name=".view.activity.FlexActivity" />
+        <activity android:name=".view.activity.ViewPager2LoopActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

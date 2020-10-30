@@ -55,4 +55,8 @@ public class MainActivity extends BaseActivity {
     public void goFlexBoxActivity(View view) {
         startActivity(new Intent(MainActivity.this, FlexActivity.class));
     }
+
+    public void goViewPager2LoopActivity(View view) {
+        startActivity(new Intent(MainActivity.this, ViewPager2LoopActivity.class));
+    }
 }
