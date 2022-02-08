@@ -1,14 +1,16 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android-extensions'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.mgg.demo"
-        minSdkVersion 18
-        targetSdkVersion 30
-        versionCode project.properties.'versionCode'.toString().toInteger()
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        applicationId project.properties.'applicationId'.toString()
+        versionCode project.properties.'versionCode'.toInteger()
         versionName project.properties.'versionName'.toString()
         vectorDrawables.useSupportLibrary = true
     }
@@ -26,18 +28,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"//kotlin
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'//协程核心库
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'//协程android库
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"//在activity、fragment中使用协程
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"//在viewModel中使用协程
-    implementation 'junit:junit:4.12'//单元测试
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-}
-repositories {
-    mavenCentral()
+    implementation project(":base")
+    implementation rootProject.ext.dependencies["recyclerview"]
+    implementation rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["viewpager2"]
+    implementation rootProject.ext.dependencies["coroutines-core"]
+    implementation rootProject.ext.dependencies["coroutines-android"]
+    implementation rootProject.ext.dependencies["lifecycle-runtime"]
+    implementation rootProject.ext.dependencies["lifecycle-viewmodel"]
+    implementation rootProject.ext.dependencies["junit"]
+    implementation rootProject.ext.dependencies["retrofit"]
 }
