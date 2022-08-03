@@ -1,5 +1,6 @@
 package com.wx.demo.view.activity
 
+import android.graphics.Color
 import com.wx.demo.BaseActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatImageView
@@ -17,6 +18,7 @@ class SmallChangeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySmallChangeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.statusBarColor = Color.WHITE
         binding.tvCash.text = "${CashManager.getWxCash()}"
         val ivBack = findViewById<AppCompatImageView>(R.id.iv_back)
         ivBack.setOnClickListener{

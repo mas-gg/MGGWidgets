@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    android:background="@color/color_gray_ed"
     android:overScrollMode="never">
 
     <!--    <LinearLayout-->
@@ -113,6 +112,7 @@
                 android:layout_marginTop="7.7dp"
                 tools:text="¥6.78"
                 android:textColor="#94d6b3"
+                android:textScaleX="0.9"
                 app:layout_constraintStart_toStartOf="@+id/tv_wallet"
                 app:layout_constraintEnd_toEndOf="@+id/tv_wallet"
                 android:layout_height="wrap_content"/>
