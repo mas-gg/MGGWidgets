@@ -15,17 +15,11 @@ class SmallChangeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySmallChangeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvCash.text = "${CashManager.initCashValue}"
+        binding.tvCash.text = "${CashManager.getWxCash()}"
     }
 
     override fun onResume() {
         super.onResume()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        binding.tvCash.postDelayed({
-            binding.tvCash.text = "${CashManager.totalValue}"
-        },400)
+        binding.tvCash.text = "${CashManager.getWxCash()}"
     }
 }
