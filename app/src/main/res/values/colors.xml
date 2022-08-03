@@ -8,7 +8,5 @@
     <color name="color_00edd9">#00edd9</color>
     <color name="color_ffdd40">#ffdd40</color>
     <color name="color_text">#333333</color>
-    <color name="pin">#F83E3E</color>
-    <color name="dot">#E2E2E2</color>
     <color name="color_transparent">#0000</color>
 </resources>
