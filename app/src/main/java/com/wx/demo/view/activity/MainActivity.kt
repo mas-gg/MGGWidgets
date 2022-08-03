@@ -1,23 +1,20 @@
-package com.wx.demo.view.activity;
+package com.wx.demo.view.activity
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
+import com.wx.demo.BaseActivity
+import android.os.Bundle
+import com.wx.demo.R
+import android.content.Intent
+import android.view.View
 
-import com.wx.demo.BaseActivity;
-import com.wx.demo.R;
+class MainActivity : BaseActivity() {
 
-public class MainActivity extends BaseActivity {
-    private static final String TAG = "MainActivity";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
     }
 
-    public void goFlexBoxActivity(View view) {
-        startActivity(new Intent(MainActivity.this, FlexActivity.class));
+    fun goSmallChangeActivity(view: View) {
+        startActivity(Intent(this@MainActivity, SmallChangeActivity::class.java))
     }
 
 }

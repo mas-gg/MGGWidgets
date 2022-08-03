@@ -13,8 +13,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="goFlexBoxActivity"
-            android:text="仿flex box流式布局" />
+            android:onClick="goSmallChangeActivity"
+            android:text="零钱界面" />
 
     </LinearLayout>
 

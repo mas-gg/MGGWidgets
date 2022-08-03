@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.wx.demo.view.activity.FlexActivity" />
+        <activity android:name="com.wx.demo.view.activity.SmallChangeActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

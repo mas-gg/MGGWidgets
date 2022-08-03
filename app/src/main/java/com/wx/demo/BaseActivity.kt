@@ -14,7 +14,7 @@ import com.wx.demo.util.StatusBarUtils
  */
 open class BaseActivity : AppCompatActivity() {
 
-    val TAG = javaClass.name!!
+    val TAG = javaClass.name
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
