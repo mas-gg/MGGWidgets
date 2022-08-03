@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.util.statusbar;
+package com.wx.demo.util.statusbar;
 
 import android.app.Activity;
 import android.os.Build;

@@ -1,11 +1,11 @@
-package com.mgg.demo.mggwidgets.view.activity;
+package com.wx.demo.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mgg.demo.mggwidgets.BaseActivity;
-import com.mgg.demo.mggwidgets.R;
+import com.wx.demo.BaseActivity;
+import com.wx.demo.R;
 
 public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";

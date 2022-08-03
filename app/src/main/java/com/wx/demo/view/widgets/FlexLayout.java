@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.view.widgets;
+package com.wx.demo.view.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 /**
  * 仿flex box流式布局
- * created by mgg
+ * created by wx
  * 2020/10/29
  */
 public class FlexLayout extends ViewGroup {

@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets
+package com.wx.demo
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.mgg.demo.mggwidgets.util.StatusBarUtils
+import com.wx.demo.util.StatusBarUtils
 
 /**
- * created by mgg
+ * created by wx
  */
 open class BaseActivity : AppCompatActivity() {
 

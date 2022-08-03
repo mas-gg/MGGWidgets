@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.util;
+package com.wx.demo.util;
 
 import android.content.Context;
 import android.util.TypedValue;
@@ -7,7 +7,7 @@ import static android.util.TypedValue.COMPLEX_UNIT_DIP;
 import static android.util.TypedValue.COMPLEX_UNIT_SP;
 
 /**
- * Created by mgg on 2018/6/15.
+ * Created by wx on 2018/6/15.
  * 像素密度-dp、sp与px转换
  */
 

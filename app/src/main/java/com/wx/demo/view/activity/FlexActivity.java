@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.view.activity;
+package com.wx.demo.view.activity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -7,9 +7,9 @@ import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.mgg.demo.mggwidgets.BaseActivity;
-import com.mgg.demo.mggwidgets.R;
-import com.mgg.demo.mggwidgets.view.widgets.FlexLayout;
+import com.wx.demo.BaseActivity;
+import com.wx.demo.R;
+import com.wx.demo.view.widgets.FlexLayout;
 
 import java.util.Random;
 

@@ -12,11 +12,11 @@
     <external-path
         name="external"
         path="." />
-    <!--应用的外部存储区根目录的下的文件。对应Context#getExternalFilesDir(String)返回的路径。Context.getExternalFilesDir(null)="/storage/emulated/0/Android/data/com.mgg.demo/files"-->
+    <!--应用的外部存储区根目录的下的文件。对应Context#getExternalFilesDir(String)返回的路径。Context.getExternalFilesDir(null)="/storage/emulated/0/Android/data/com.wx.demo/files"-->
     <external-files-path
         name="external_files"
         path="." />
-    <!--应用的外部缓存区根目录的文件。对应Context.getExternalCacheDir()返回的路径。"/storage/emulated/0/Android/data/com.mgg.demo/cache"-->
+    <!--应用的外部缓存区根目录的文件。对应Context.getExternalCacheDir()返回的路径。"/storage/emulated/0/Android/data/com.wx.demo/cache"-->
     <external-cache-path
         name="external_cache"
         path="." />

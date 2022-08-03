@@ -4,7 +4,7 @@
     android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
-    <com.mgg.demo.mggwidgets.view.widgets.FlexLayout
+    <com.wx.demo.view.widgets.FlexLayout
         android:id="@+id/fl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

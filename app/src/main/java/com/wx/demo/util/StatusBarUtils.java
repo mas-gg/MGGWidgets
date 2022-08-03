@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.util;
+package com.wx.demo.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.mgg.demo.mggwidgets.util.statusbar.FlymeStatusBarUtils;
-import com.mgg.demo.mggwidgets.util.statusbar.OSUtils;
+import com.wx.demo.util.statusbar.FlymeStatusBarUtils;
+import com.wx.demo.util.statusbar.OSUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

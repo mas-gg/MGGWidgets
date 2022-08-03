@@ -1,4 +1,4 @@
-package com.mgg.demo.mggwidgets.util;
+package com.wx.demo.util;
 
 import android.content.Context;
 import android.content.res.Resources;
