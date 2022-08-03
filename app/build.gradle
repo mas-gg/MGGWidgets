@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        mgg123 {
+            storeFile file('../keystore/mgg123')
+            storePassword 'mgg123'
+            keyAlias 'mgg123'
+            keyPassword 'mgg123'
+        }
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -17,6 +25,8 @@ android {
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.mgg123
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,11 +43,4 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.dependencies["recyclerview"]
     implementation rootProject.ext.dependencies["constraintlayout"]
-    implementation rootProject.ext.dependencies["viewpager2"]
-    implementation rootProject.ext.dependencies["coroutines-core"]
-    implementation rootProject.ext.dependencies["coroutines-android"]
-    implementation rootProject.ext.dependencies["lifecycle-runtime"]
-    implementation rootProject.ext.dependencies["lifecycle-viewmodel"]
-    implementation rootProject.ext.dependencies["junit"]
-    implementation rootProject.ext.dependencies["retrofit"]
 }
