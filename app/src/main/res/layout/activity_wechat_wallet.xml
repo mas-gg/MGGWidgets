@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_ed"
+    android:fitsSystemWindows="true"
+    android:overScrollMode="never">
+
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:padding="10dp"
+            android:src="@drawable/back_left_arrows" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="钱包"
+            android:textColor="@color/color_black_19"
+            android:textSize="15.3sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="17dp"
+            android:gravity="center"
+            android:text="账单"
+            android:textColor="@color/color_black_19"
+            android:textSize="15.3sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/ll_title"
+        tools:ignore="RtlSymmetry">
+
+        <LinearLayout
+            android:id="@+id/ll_cash"
+            style="@style/WalletLinearLayoutStyle"
+            android:background="@drawable/selector_button_press"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/loose_change_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="零钱" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_cash"
+                style="@style/TitleTextviewStyle"
+                android:textStyle="bold"
+                tools:text="99.9" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/loose_change_plus_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TitleTextviewStyle"
+                android:layout_marginStart="14dp"
+                android:text="零钱通" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7.7dp"
+                android:background="@drawable/shape_feedda_cor_3_7"
+                android:paddingHorizontal="3.7dp"
+                android:paddingVertical="3.7dp"
+                android:text="收益率1.9%"
+                android:textColor="#fa9d3b" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_bank_card_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="银行卡" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7.3dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_pay_points_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="支付分" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_family_card_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="亲属卡" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="7.3dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_ldentity_info_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="身份信息" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_security_security_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="安全保障" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+        <LinearLayout
+            style="@style/WalletLinearLayoutStyle"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            tools:ignore="RtlSymmetry">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/wallet_pay_setting_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/WalletCenterTextviewStyle"
+                android:text="支付设置" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:src="@drawable/back_right_arrows" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_marginStart="36dp"
+            android:background="@color/color_grey_e5" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_bottom_info2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="帮助中心"
+        android:textColor="#576b95"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_bottom_info1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_bottom_info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:text="本服务由财付通提供"
+        android:textColor="#737373"
+        android:textSize="10.7sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

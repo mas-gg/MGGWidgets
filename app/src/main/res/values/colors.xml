@@ -9,4 +9,8 @@
     <color name="color_ffdd40">#ffdd40</color>
     <color name="color_text">#191919</color>
     <color name="color_transparent">#0000</color>
+    <color name="color_gray_ed">#ededed</color>
+    <color name="color_black_19">#191919</color>
+    <color name="color_grey_e5">#e5e5e5</color>
+
 </resources>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@color/color_gray_ed"
+    android:overScrollMode="never">
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical">-->
+
+    <!--        <Button-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:onClick="goSmallChangeActivity"-->
+    <!--            android:text="零钱界面" />-->
+
+    <!--    </LinearLayout>-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="51dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="3dp"
+                android:padding="10dp"
+                android:src="@drawable/back_left_arrows"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="服务"
+                android:textStyle="normal"
+                android:textSize="15.3sp"
+                android:textColor="@color/color_black_19"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/black_hind"
+                android:layout_marginEnd="17dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_balance_info"
+            android:layout_width="match_parent"
+            android:background="@drawable/shape_2aae67_cor_7_3"
+            app:layout_constraintTop_toBottomOf="@+id/ll_title"
+            android:gravity="center"
+            android:layout_marginHorizontal="7.3dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="130dp">
+
+            <View
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/view_center"
+                android:layout_width="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="1dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="收付款"
+                android:drawablePadding="17dp"
+                android:textColor="@color/color_white"
+                android:layout_marginTop="34dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/view_center"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"
+                app:drawableTopCompat="@drawable/collection_icon" />
+
+            <TextView
+                android:id="@+id/tv_wallet"
+                android:layout_width="wrap_content"
+                android:text="钱包"
+                android:paddingHorizontal="20dp"
+                android:drawablePadding="17dp"
+                android:textColor="@color/color_white"
+                android:layout_marginTop="34dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view_center"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                tools:ignore="HardcodedText"
+                app:drawableTopCompat="@drawable/packet_icon" />
+
+            <TextView
+                android:id="@+id/tv_cash"
+                app:layout_constraintTop_toBottomOf="@+id/tv_wallet"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="7.7dp"
+                tools:text="¥6.78"
+                android:textColor="#94d6b3"
+                app:layout_constraintStart_toStartOf="@+id/tv_wallet"
+                app:layout_constraintEnd_toEndOf="@+id/tv_wallet"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            app:layout_constraintTop_toBottomOf="@+id/ll_balance_info"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="7.3dp"
+            android:layout_marginHorizontal="7.3dp"
+            android:src="@drawable/wechat_service_bottom_bg"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
