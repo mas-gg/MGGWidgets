@@ -31,6 +31,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="钱包"
+            android:translationX="10dp"
             android:textColor="@color/color_black_19"
             android:textSize="15.3sp"
             android:textStyle="normal" />
@@ -77,15 +78,16 @@
                 android:id="@+id/tv_cash"
                 style="@style/TitleTextviewStyle"
                 android:textStyle="bold"
+                android:fontFamily="@font/core_sans_neue_sans_d_55"
                 tools:text="99.9"
+                android:padding="2dp"
                 android:textScaleX="0.9"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                android:translationY="1dp"
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -131,8 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -161,8 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -190,8 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -220,8 +219,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -249,8 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -279,8 +276,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>
@@ -309,8 +305,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="9dp"
-                android:rotation="180"
-                android:tint="#b2b2b2"
+                
                 android:src="@drawable/back_right_arrows" />
 
         </LinearLayout>

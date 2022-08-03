@@ -30,7 +30,7 @@ class WechatWalletActivity : BaseActivity() {
         ivBack.setOnClickListener{
             finish()
         }
-        tvCash.text = "¥" + CashManager.getWxCash()
+        tvCash.text = "¥"+CashManager.getWxCash().toCash()
         llCash.setOnClickListener {
             startActivity(Intent(this@WechatWalletActivity, SmallChangeActivity::class.java))
         }

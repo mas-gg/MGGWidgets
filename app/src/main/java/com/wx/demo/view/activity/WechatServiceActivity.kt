@@ -25,7 +25,7 @@ class WechatServiceActivity : BaseActivity() {
     private fun initView() {
         val tvWallet = findViewById<TextView>(R.id.tv_wallet)
         val tvCash = findViewById<TextView>(R.id.tv_cash)
-        tvCash.text = "¥"+ CashManager.getWxCash()
+        tvCash.text = "¥"+ CashManager.getWxCash().toCash()
         tvWallet.setOnClickListener {
             startActivity(Intent(this@WechatServiceActivity, WechatWalletActivity::class.java))
         }
