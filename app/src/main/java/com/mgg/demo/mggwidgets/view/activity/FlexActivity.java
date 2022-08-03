@@ -1,22 +1,20 @@
 package com.mgg.demo.mggwidgets.view.activity;
 
-import android.content.res.TypedArray;
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.mgg.demo.mggwidgets.BaseActivity;
 import com.mgg.demo.mggwidgets.R;
 import com.mgg.demo.mggwidgets.view.widgets.FlexLayout;
 
 import java.util.Random;
 
 
-public class FlexActivity extends AppCompatActivity {
+public class FlexActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +23,13 @@ public class FlexActivity extends AppCompatActivity {
 
         final Random random = new Random();
         final FlexLayout flexLayout = findViewById(R.id.fl);
-        flexLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flexLayout.addView(getRandomTv(random));
-            }
-        });
+        flexLayout.setOnClickListener(v -> flexLayout.addView(getRandomTv(random)));
         for (int i = 0; i < 10; i++) {
             flexLayout.addView(getRandomTv(random));
         }
     }
 
+    @SuppressLint("SetTextI18n")
     TextView getRandomTv(Random random) {
         TextView tv = new TextView(this);
         tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10 + random.nextInt(10));

@@ -19,18 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.RecordButtonActivity" />
-        <activity android:name=".view.activity.RoundImageViewActivity" />
-        <activity android:name=".view.activity.SvgActivity" />
-        <activity android:name=".view.activity.CalendarActivity" />
-        <activity android:name=".view.activity.LiveActivity" />
-        <activity android:name=".view.activity.CoroutineActivity" />
-        <activity android:name=".view.activity.RecordVideoActivity" />
-        <activity android:name=".view.activity.TabActivity" />
-        <activity android:name=".view.activity.DimpleActivity" />
-        <activity android:name=".view.activity.MotionActivity" />
         <activity android:name=".view.activity.FlexActivity" />
-        <activity android:name=".view.activity.ViewPager2LoopActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

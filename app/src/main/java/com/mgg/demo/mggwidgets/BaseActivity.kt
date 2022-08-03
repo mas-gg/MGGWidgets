@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.mgg.demo.mggwidgets.util.StatusBarUtils
 
 /**
  * created by mgg
@@ -22,6 +23,7 @@ open class BaseActivity : AppCompatActivity() {
         } else {
             onAllPermissionsGranted()
         }
+        StatusBarUtils.setDarkMode(window)
     }
 
     override fun onNewIntent(intent: Intent?) {
