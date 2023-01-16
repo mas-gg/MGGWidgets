@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.mgg.demo.mggwidgets.BaseActivity;
 import com.mgg.demo.mggwidgets.BuildConfig;
 import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.databinding.ActivityRecordVideoBinding;
 import com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView;
 import com.mgg.demo.mggwidgets.view.widgets.RecordButton;
 import java.io.File;
@@ -57,7 +58,7 @@ import static com.mgg.demo.mggwidgets.view.widgets.AutoFitSurfaceView.SCALE_TYPE
  * 2020/6/28
  */
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public class RecordVideoActivity extends BaseActivity {
+public class RecordVideoActivity extends BaseActivity<ActivityRecordVideoBinding> {
     private static final int RECORDER_VIDEO_BITRATE = 10_000_000;
     private static final int RECORDER_VIDEO_FPS = 30;
     private static final int RECORDER_VIDEO_MAX_DURATION = 10_000;
@@ -100,7 +101,6 @@ public class RecordVideoActivity extends BaseActivity {
     }
 
     void initView() {
-        setContentView(R.layout.activity_record_video);
         surfaceView = findViewById(R.id.surface_view);
         btnRecord = findViewById(R.id.btn_record);
         btnSwitch = findViewById(R.id.btn_switch);

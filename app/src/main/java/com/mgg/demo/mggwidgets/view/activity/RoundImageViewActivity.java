@@ -3,13 +3,8 @@ package com.mgg.demo.mggwidgets.view.activity;
 import android.os.Bundle;
 
 import com.mgg.demo.mggwidgets.BaseActivity;
-import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.databinding.ActivityRoundImageViewBinding;
 
-public class RoundImageViewActivity extends BaseActivity {
+public class RoundImageViewActivity extends BaseActivity<ActivityRoundImageViewBinding> {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_round_image_view);
-    }
 }

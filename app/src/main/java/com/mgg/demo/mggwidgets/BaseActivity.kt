@@ -7,16 +7,21 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
+import com.mgg.demo.mggwidgets.util.ViewBindingUtil
 
 /**
  * created by mgg
  */
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
+    lateinit var binding: VB
     val TAG = javaClass.name!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ViewBindingUtil.inflateWithGeneric(this, layoutInflater)
+        setContentView(binding.root)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkPermissions()
         } else {

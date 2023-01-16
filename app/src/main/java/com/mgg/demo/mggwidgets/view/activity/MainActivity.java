@@ -6,15 +6,10 @@ import android.view.View;
 
 import com.mgg.demo.mggwidgets.BaseActivity;
 import com.mgg.demo.mggwidgets.R;
+import com.mgg.demo.mggwidgets.databinding.ActivityMainBinding;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private static final String TAG = "MainActivity";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 
     public void goRecordButtonActivity(View view) {
         startActivity(new Intent(MainActivity.this, RecordButtonActivity.class));

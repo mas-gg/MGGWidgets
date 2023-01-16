@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mgg.demo.mggwidgets.BaseActivity
 import com.mgg.demo.mggwidgets.R
+import com.mgg.demo.mggwidgets.databinding.ActivityCalendarBinding
 import com.mgg.demo.mggwidgets.util.CalendarItem
 import com.mgg.demo.mggwidgets.util.CalendarUtils
 import kotlinx.android.synthetic.main.activity_calendar.*
 import java.util.*
 
-class CalendarActivity : BaseActivity() {
+class CalendarActivity : BaseActivity<ActivityCalendarBinding>() {
 
     private lateinit var mAdapter: CalendarAdapter
     private lateinit var currentDate: Date
@@ -31,7 +32,6 @@ class CalendarActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calendar)
         initView()
         initData()
     }

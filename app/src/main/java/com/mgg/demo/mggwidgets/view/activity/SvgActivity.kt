@@ -9,15 +9,14 @@ import android.os.Bundle
 import android.view.View
 import com.mgg.demo.mggwidgets.BaseActivity
 import com.mgg.demo.mggwidgets.R
+import com.mgg.demo.mggwidgets.databinding.ActivitySvgBinding
 import kotlinx.android.synthetic.main.activity_svg.*
 
-class SvgActivity : BaseActivity() {
+class SvgActivity : BaseActivity<ActivitySvgBinding>() {
     var pinAnimEnd=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_svg)
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             var animate = iv_anim_pin.drawable as AnimatedVectorDrawable
             animate.registerAnimationCallback(object : Animatable2.AnimationCallback() {

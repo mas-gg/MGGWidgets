@@ -6,9 +6,10 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import com.mgg.demo.mggwidgets.BaseActivity
 import com.mgg.demo.mggwidgets.R
+import com.mgg.demo.mggwidgets.databinding.ActivityLiveBinding
 import com.mgg.demo.mggwidgets.view.fragment.LiveFragment
 
-class LiveActivity : BaseActivity() {
+class LiveActivity : BaseActivity<ActivityLiveBinding>() {
 
     companion object {
         @JvmStatic
@@ -20,7 +21,6 @@ class LiveActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        setContentView(R.layout.activity_live)
         initFragment()
     }
 
